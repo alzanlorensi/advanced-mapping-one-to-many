@@ -23,8 +23,8 @@ public class Course {
     private String title;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {
-            CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,
-    CascadeType.DETACH})
+            CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
+            CascadeType.DETACH})
     @JoinColumn(name = "instructor_id_fk") //this join column is set as a FK colum
     private Instructor instructorFK;
 

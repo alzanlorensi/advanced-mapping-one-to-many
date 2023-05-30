@@ -20,11 +20,11 @@ public class AdvancedMappingOneToOneApplication {
     public CommandLineRunner commandLineRunner(AppDAO appDAO) {
         return runner ->
                 //createInstructor(appDAO);
-        //findInstructor(appDAO);
-        //deleteInstructor(appDAO);
-        //findInstructorDetail(appDAO);
-        //deleteInstructorbyID(appDAO);
-        findCoursebyId(appDAO);
+                //findInstructor(appDAO);
+                //deleteInstructor(appDAO);
+                //findInstructorDetail(appDAO);
+                //deleteInstructorbyID(appDAO);
+                findCoursebyId(appDAO);
     }
 
     private void findCoursebyId(AppDAO appDAO) {
@@ -33,7 +33,7 @@ public class AdvancedMappingOneToOneApplication {
         System.out.println("The course is " + course.getTitle()
                 + "\nthe instrutor's id is: " + course.getInstructorFK().getId()
                 + "\nthe instructor's name is " + course.getInstructorFK().getFirs_name()
-                +"\nthe instructor's hobby is "+ course.getInstructorFK().getInstructorDetail().getHobby()
+                + "\nthe instructor's hobby is " + course.getInstructorFK().getInstructorDetail().getHobby()
         );
     }
 
@@ -49,13 +49,13 @@ public class AdvancedMappingOneToOneApplication {
          * it means that cascateType wont effect detail
          * # Send i will have to break the bidirectional association seeting my instructordetail to null so the method  would have to be
          * @Override
-               * @Transactional
-                *public void deleteInsctructorById(Integer id) {
-               * Instructor temp = entityManager.find(Instructor.class, id);
-                * temp.getInstructor.setinstructorDetail(null)
-               * entityManager.remove(temp);
-              *  }
-                   * basically i'd have to set my detail to null
+         * @Transactional
+         *public void deleteInsctructorById(Integer id) {
+         * Instructor temp = entityManager.find(Instructor.class, id);
+         * temp.getInstructor.setinstructorDetail(null)
+         * entityManager.remove(temp);
+         *  }
+         * basically i'd have to set my detail to null
          * */
     }
 
@@ -84,7 +84,7 @@ public class AdvancedMappingOneToOneApplication {
                 new InstructorDetail("Implantador", "Jogar");
         tempInstructor.setInstructorDetail(instructorDetail);
         Course course =
-                new Course("Java Programming",tempInstructor);
+                new Course("Java Programming", tempInstructor);
         tempInstructor.addcourse(course);
 
         appDAO.save(tempInstructor);

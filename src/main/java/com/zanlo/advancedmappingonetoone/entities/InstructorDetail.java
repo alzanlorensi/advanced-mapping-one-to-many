@@ -25,7 +25,7 @@ public class InstructorDetail {
     private String hobby;
 
     //add new field for instructior -->Here its the name of my field in class Instructor
-    @OneToOne(mappedBy = "instructorDetail",cascade = CascadeType.ALL,fetch = FetchType.EAGER) //
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL, fetch = FetchType.EAGER) //
     //* here i cascate every cascate type, if i dont wanna cascate delete it would be like this
     //!OneToOne(mappedBy = "instructorDetail",
     //!         cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
