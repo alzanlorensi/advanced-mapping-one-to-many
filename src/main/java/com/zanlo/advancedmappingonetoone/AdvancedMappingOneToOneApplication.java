@@ -25,6 +25,16 @@ public class AdvancedMappingOneToOneApplication {
                 //findInstructorDetail(appDAO);
                 //deleteInstructorbyID(appDAO);
                 findCoursebyId(appDAO);
+                //showAllCoursesByInstructor(appDAO);
+
+    }
+
+    private void showAllCoursesByInstructor(AppDAO appDAO) {
+        int theId = 2;
+        Instructor tmpInstructor = appDAO.findInstructorById(theId);
+
+        tmpInstructor.getCourses().forEach(c -> System.out.println("Course's name " +c.getTitle()));
+
     }
 
     private void findCoursebyId(AppDAO appDAO) {

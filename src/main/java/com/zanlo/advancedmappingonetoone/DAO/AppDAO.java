@@ -5,6 +5,8 @@ import com.zanlo.advancedmappingonetoone.entities.Instructor;
 import com.zanlo.advancedmappingonetoone.entities.InstructorDetail;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface AppDAO {
 
     void save (Instructor theInstructor);
@@ -19,5 +21,7 @@ public interface AppDAO {
     void deleteInstructorDetailById(Integer id);
 
     Course findCourseById(Integer id);
+
+    List<Course> showAllCoursesByInstructor(Integer id);
 
 }

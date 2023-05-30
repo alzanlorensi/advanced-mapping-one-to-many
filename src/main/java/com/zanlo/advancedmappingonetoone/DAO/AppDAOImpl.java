@@ -7,6 +7,8 @@ import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public class AppDAOImpl implements AppDAO {
 
@@ -49,5 +51,11 @@ public class AppDAOImpl implements AppDAO {
     @Override
     public Course findCourseById(Integer id) {
         return entityManager.find(Course.class, id);
+    }
+
+    @Override
+    public List<Course> showAllCoursesByInstructor(Integer id) {
+        Instructor tmpInstructor = entityManager.find(Instructor.class,id);
+        return tmpInstructor.getCourses();
     }
 }
